@@ -9,7 +9,7 @@ const scripts = path.resolve(__dirname, 'src');
 const webpackConfig = {
   entry: './src/index.tsx',
   output: {
-    path: path.resolve(__dirname, 'build'),
+    path: path.resolve(__dirname, 'api/web'),
     filename: 'index.js',
     publicPath: '/',
   },
@@ -19,6 +19,9 @@ const webpackConfig = {
         test: /\.tsx?$/,
         loader: 'ts-loader',
         include: [scripts],
+        options: {
+            configFile: "tsconfig-web.json"
+        }
       },
       {
         test: /\.css?$/,
