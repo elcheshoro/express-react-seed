@@ -1,5 +1,4 @@
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const path = require('path');
@@ -39,13 +38,10 @@ const webpackConfig = {
   },
   plugins: [
     new CleanWebpackPlugin(),
-    new HtmlWebpackPlugin({
-      template: './src/index.html',
-      inject: 'body',
-    }),
     new CopyWebpackPlugin({
       patterns: [
         { from: 'src/public/images', to: 'images' },
+        { from: 'src/index.html', to: '.' },
       ],
     }),
   ],
